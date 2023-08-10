@@ -1,0 +1,293 @@
+<!-- BEGIN: main -->
+<script>
+
+
+function setOptions(gridId, value ){
+	if( value )
+		$(".rich_option_item_" + gridId).show();
+	else
+		$(".rich_option_item_" + gridId).hide();
+}
+
+function selectRow(gridId, rowId, checkInputId ){
+
+	if(document.getElementById(checkInputId).checked)
+		document.getElementById(checkInputId).checked  ="";
+	else
+		document.getElementById(checkInputId).checked  ="checked";
+
+	resetOptions(gridId, rowId, document.getElementById(checkInputId).checked );
+}
+
+function resetOptions( gridId,rowId, checked ){
+
+	var mostrar = checked ;
+	$("#search_results_" + gridId + " :checkbox").each(function (i) {
+	 	//si alguna est� chequeado, habilitamos las opciones.
+		mostrar = mostrar ||  $(this).is(':checked') ;
+
+	 });
+
+	 
+	setOptions( gridId,mostrar );
+
+	paintSelected( gridId,rowId, checked );
+	
+	//lo incluimos en la lista global de items seleccionados.
+	if( checked )
+		addItemsSelected(gridId,rowId);
+	else
+		removeItemsSelected(gridId,rowId);
+}
+
+
+
+function paintSelected( gridId,rowId, checked ){
+
+	if( checked )
+		$("#" + rowId).css({'background-color': '#FFFFCC'});
+	else
+		$("#" + rowId).css({'background-color': ''});
+}
+
+function paintAllSelected(gridId){
+
+	$("#search_results_" + gridId + " :checkbox").each(function (i) {
+
+		var itemId = $(this).val();
+		
+		if( $(this).is(':checked') ){
+				$("#row_" + gridId + "_" + itemId).css({'background-color': '#FFFFCC'});
+		}else
+			$("#row_" + gridId + "_" + itemId).css({'background-color': ''});
+		
+		 
+ 	});
+
+	
+}
+
+function getSelected_{gridId}( ){
+
+	var selected = "";
+	var first = true;
+	$("#search_results_{gridId} :checkbox").each(function (i) {
+
+		 	if (  $(this).is(':checked')  && $(this).attr('name') != 'checkAll__{gridId}' ){
+
+		 		if( first ) 
+		 			selected +=  $(this).val()  ;
+		 		else
+		 			selected +=  "," + $(this).val();
+
+	 			first = false;
+			}
+			
+			 	 
+	 });
+	return selected;
+}
+
+
+function checkTodos(gridId,id,pID) {
+	 
+	   $( "#" + pID + " :checkbox").attr('checked', $('#' + id).is(':checked'));
+
+	   mostrar = $('#' + id).is(':checked');
+	   
+	  
+	   
+	   setOptions( gridId,mostrar  ); 
+
+	   paintAllSelected(gridId);
+	
+	   //vemos si hay que deseleccionar o seleccionar en el arreglo de
+	   //items de todas las páginas.
+	   $("#search_results_" + gridId + " :checkbox").each(function (i) {
+			
+			var rowId = "row_" + gridId + "_" + $(this).val();
+		   
+			
+			if( $(this).is(':checked') ) 
+				addItemsSelected(gridId,rowId);
+			else
+				removeItemsSelected(gridId,rowId);
+			 
+	 	})
+	   	
+}
+
+function checkOnlyOneSelected_{gridId}( onSuccess ){
+
+	var count = 0;
+	$("#search_results_{gridId} :checkbox").each(function (i) {
+		
+		if( $(this).is(':checked') ){
+			count ++;
+		}
+		 
+ 	})
+ 	if( count == 1 ){
+		onSuccess();
+ 	}else{
+		jAlert("{msgSelectOnlyOneItem}");
+ 	 }
+}
+
+function delete_items( action ){
+	//jAlert("doAction?action=" + action + "&id=" + getSelected_{gridId}());
+	// jQuery("#searchdiv_{gridId}").load( "doAction?action=" + action + "&id=" + getSelected_{gridId}() );
+	var loadUrl = "doAction?action=" + action + "&id=" + getSelected_{gridId}();
+	startSearch("#searchdiv_{gridId}");
+	$.ajax({
+		url: loadUrl,
+		type: "GET",
+		dataType: 'json',
+		cache: false,
+		complete:function(){
+			
+			search_ajax( '{filterId}' );
+		},	
+		success: function(data){
+			
+			if( data["error"]!=null ){
+			
+				console.log("error:" + data["error"]);
+				showMessageError( data["error"], false );
+				$("#submit_buttons").show();
+				
+			}else{
+				console.log("info:" + data["info"]);
+				showMessageInfo( data["info"], true );
+				
+			}
+			  
+		  }
+		});
+}
+
+function doAction( action ){
+
+	//jAlert("doAction?action=" + action + "&id=" + getSelected_{gridId}());
+	jQuery("#searchdiv_{gridId}").load( "doAction?action=" + action + "&id=" + getSelected_{gridId}() );
+
+}
+
+</script>
+<!-- BEGIN: header -->
+<div class='tablaSummaryHeader'>{header}</div>
+<!-- END: header -->
+<div id="search_results_{gridId}">
+
+<div class="rich_options_content">
+	
+     <div class="rich_options" style="display: block; margin-right: 4px;" >
+         <!-- BEGIN: action -->
+         <a class="btn-link" title="{label}" href="doAction?action={action}" onclick="javascript:{callback}" >
+			<span class="btn-inner btn-link-left">
+				<span class="btn-text">{label}</span>
+				<span class="btn-icon-left btn-icon rich_option_item_{liClass}"></span>
+			</span>
+         </a>
+         <!-- END: action -->
+    </div>
+
+
+	<div class="rich_options rich_option_item_{gridId}">
+		<!-- BEGIN:barra_opcion -->
+		<a class="btn-link" title="{title}" href="" onclick="javascript:{functionCallback}; return false" >
+			<span class="btn-inner btn-link-left">
+				<span class="btn-text">{label}</span>
+				<span class="btn-icon-left btn-icon rich_option_item_{divClass}"></span>
+			</span>
+		</a>				
+		<!-- END:barra_opcion -->
+	</div>
+</div>
+
+<!-- BEGIN:error_message -->
+<script type="text/javascript">
+showMessageError( '{error_message}', false );
+</script>
+<!-- END:error_message -->
+
+<div class="grid_pages" id="paginator_{gridId}">
+	<div style="float:right;">
+	<!-- BEGIN: pagination --> {pagination} <!-- END: pagination -->
+	</div>
+</div>
+
+<div style="float: left; width: 100%"> 
+
+<div class="block">
+
+<table border="1">
+	<thead>
+	<tr>
+		<!-- BEGIN: TH_CHECKBOX -->
+		<th rowspan={group_levels}> <input id="checkAll_{gridId}" onclick="checkTodos('{gridId}',this.id,'search_results_{gridId}');" name="checkAll_{gridId}" type="checkbox" /></th>
+		<!-- END: TH_CHECKBOX -->
+		<!-- BEGIN: TH -->		
+		
+			<!-- BEGIN: SIMPLE -->
+			<th rowspan={group_levels}>
+			
+				<a title="{lbl_order_by} {orderLabel} - {orderType}" 
+					href="#" onclick="javascript: sort_ajax( '{filterId}', '{orderField}', '{orderType}'); return false;">
+					{label}
+				</a>
+				
+			</th>
+			<!-- END: SIMPLE -->
+			
+			<!-- BEGIN: GROUP -->		
+			<th colspan={group_size}>
+				<a title="{lbl_order_by} {orderLabel} - {orderType}" 
+					href="#" onclick="javascript: sort_ajax( '{filterId}', '{orderField}', '{orderType}'); return false;">
+					{group_label}				
+				</a>
+			</th>
+			<!-- END: GROUP -->
+			
+		<!-- END: TH -->
+	</tr>
+	<!-- BEGIN: SUB_HEADER -->
+	<tr>
+		<!-- BEGIN: TH -->		
+		<th>
+		
+			<a title="{lbl_order_by} {orderLabel} - {orderType}"  
+				href="#" onclick="javascript: sort_ajax( '{filterId}', '{orderField}', '{orderType}'); return false;">
+				{label}
+			</a>
+			
+		</th>
+		<!-- END: TH -->
+	</tr>	
+	<!-- END: SUB_HEADER -->
+	
+	</thead>
+	
+	<!-- BEGIN: row -->
+	
+	<tbody class="{rowClass}" id="row_{gridId}_{itemId}">
+	<tr style="cursor: pointer;" class="{row_class}" >
+	
+		<!-- BEGIN:checkbox -->
+		<td><input onclick="resetOptions('{gridId}', 'row_{gridId}_{itemId}', this.checked );" type="checkbox" name="item_{gridId}_{itemId}"  id="item_{gridId}_{itemId}"   value="{itemId}" ></input></td>
+		<!-- END:checkbox -->
+		<!-- BEGIN: column -->
+		<td style="{column_style}" class="{column_class}" onclick="selectRow('{gridId}', 'row_{gridId}_{itemId}', 'item_{gridId}_{itemId}' );">{value}</td>
+		<!-- END: column -->
+	</tr>
+	</tbody>
+	<!-- END: row -->
+</table>
+
+<!-- BEGIN: footer -->
+<div class='tablaSummaryFooter'>{footer}</div>
+<!-- END: footer -->
+</div>
+</div>
+</div>
+<!-- END: main -->
