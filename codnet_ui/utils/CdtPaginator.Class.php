@@ -3,10 +3,10 @@
 class CdtPaginator {
 	
 	protected $url_and_get_vars; //Direccion del Paginador con las variables pasadas por Get
-	protected $num_pages; //Cantidad de Páginas que surgen de la consulta que se quiere paginar
+	protected $num_pages; //Cantidad de Pï¿½ginas que surgen de la consulta que se quiere paginar
 	protected $actual_page; //Numero de pagina en la que estoy ubicado 
 	protected $css_class_other_page; //Clase de estilo CSS para aplicar a los tags A de link a otros numeros de pagina
-	protected $css_class_actual_page; //Clase de estilo CSS para aplicar al numero que indica la página actual
+	protected $css_class_actual_page; //Clase de estilo CSS para aplicar al numero que indica la pï¿½gina actual
 	protected $num_pages_per_page; //Esta variable me indica la cantidad de paginas que imprimo por pagina
 	protected $num_rows_per_page; //Esta variable me indica la cantidad de registros que imprimo por pagina
 	protected $total_rows;
@@ -15,7 +15,7 @@ class CdtPaginator {
 	//
 	// Constructor
 	//
-	function CdtPaginator($url, $numpages, $actualpage, $cssclassotherpage, $cssclassactualpage, $total_rows, $row_per_page=null) {
+	function __construct($url, $numpages, $actualpage, $cssclassotherpage, $cssclassactualpage, $total_rows, $row_per_page=null) {
 		$this->url_and_get_vars = $url;
 		$this->num_pages = $numpages;
 		$this->actual_page = $actualpage;
@@ -30,7 +30,7 @@ class CdtPaginator {
 	}
 	
 	/**
-	 * le agregamos la page como parámetro así se puede
+	 * le agregamos la page como parï¿½metro asï¿½ se puede
 	 * redefinir el link para usar con ajax.
 	 * @param $page
 	 * @return unknown_type

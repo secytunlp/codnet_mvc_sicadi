@@ -73,11 +73,14 @@ function successDefault_{form_id}(data ){
 					<div class="form-row" style="min-width: {minWidth};display:{display}"  id="item-div-{input_name}">
 					    
 					    <!-- BEGIN: label -->
-					    <label for="{input_name}">{value} {required}</label>
+					    <label for="{input_name}">{value}</label>
 					    <!-- END: label -->
 					    <!-- BEGIN: input -->
 					    {input}
 					    <!-- END: input -->
+						<div class="obligatorio">
+							<h3>{required}</h3>
+						</div>
 					</div>
 					<!-- END: field -->
 				</div>
@@ -114,8 +117,10 @@ function successDefault_{form_id}(data ){
 		<!-- BEGIN: cancel -->
 		<input type="button" value="{lbl_cancel}" id="{form_id}_input_cancel" onclick="javascript: {function};">
 		<!-- END: cancel -->
-		
-		<div class="camposRequeridos">(*) {msg_required_fields}</div>	
+
+		<div class="campos-requeridos">
+			<h4> (*) {msg_required_fields} </h4>
+		</div>
 	</fieldset>
 </form>	
 <!-- END: buttons -->

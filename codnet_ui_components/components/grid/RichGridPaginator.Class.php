@@ -5,7 +5,7 @@ class RichGridPaginator extends GridPaginator{
 	//
 	// Constructor
 	//
-	function RichGridPaginator($url, $numpages, $actualpage, $cssclassotherpage, $cssclassactualpage, $total_rows, $gridId, $row_per_page=null) {
+	function __construct($url, $numpages, $actualpage, $cssclassotherpage, $cssclassactualpage, $total_rows, $gridId, $row_per_page=null) {
 		
 		parent::__construct($url, $numpages, $actualpage, $cssclassotherpage, $cssclassactualpage, $total_rows, $gridId, $row_per_page=null);
 		

@@ -138,7 +138,7 @@ class CMPForm extends CMPComponent{
 	private $buttons;
 	
 	
-	public function CMPForm( $id="editform",$submitLbl= CDT_UI_LBL_SAVE, $cancelLbl=CDT_UI_LBL_CANCEL){
+	public function __construct( $id="editform",$submitLbl= CDT_UI_LBL_SAVE, $cancelLbl=CDT_UI_LBL_CANCEL){
 		$this->properties = array();
 		$this->fieldsets = array();
 		$this->hiddens = array();

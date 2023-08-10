@@ -7,7 +7,7 @@ class GridPaginator extends CdtPaginator{
 	//
 	// Constructor
 	//
-	function GridPaginator($url, $numpages, $actualpage, $cssclassotherpage, $cssclassactualpage, $total_rows, $gridId, $row_per_page=null) {
+	function __construct($url, $numpages, $actualpage, $cssclassotherpage, $cssclassactualpage, $total_rows, $gridId, $row_per_page=null) {
 		
 		parent::__construct($url, $numpages, $actualpage, $cssclassotherpage, $cssclassactualpage, $total_rows, $row_per_page=null);
 		

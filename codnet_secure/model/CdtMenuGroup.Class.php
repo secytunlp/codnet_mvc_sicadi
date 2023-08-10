@@ -25,7 +25,7 @@ class CdtMenuGroup {
 	private $options;
 
 	//Constructor.
-	public function CdtMenuGroup() { 
+	public function __construct() {
 		//inicializar variables.
 		
 		

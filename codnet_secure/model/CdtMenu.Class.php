@@ -1,6 +1,6 @@
 <?php
 /**
- * Menú.
+ * Menï¿½.
  * 
  * @author bernardo
  * @since 19-03-2010
@@ -10,10 +10,10 @@ class CdtMenu{
 
 	protected $groups;
 	
-	//Método constructor 
+	//Mï¿½todo constructor 
 	
 
-	function CdtMenu() {
+	function __construct() {
 		
 		$this->groups = new ItemCollection();
 		

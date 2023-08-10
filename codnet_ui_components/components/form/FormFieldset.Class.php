@@ -27,7 +27,7 @@ class FormFieldset {
 	 */
 	private $fieldsColumns;
 	
-	public function FormFieldset( $legend="" ){
+	public function __construct( $legend="" ){
 		$this->legend = $legend;
 		$this->fields = array();
 		$this->fieldsColumns = array();

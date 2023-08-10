@@ -28,7 +28,7 @@ class FormField {
 	 */
 	private $minWidth="";
 	
-	public function FormField( $label, $input ){
+	public function __construct( $label, $input ){
 		
 		$this->setLabel( $label );
 		$this->setInput($input);

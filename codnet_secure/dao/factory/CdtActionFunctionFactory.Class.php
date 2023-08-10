@@ -10,7 +10,7 @@ class CdtActionFunctionFactory implements ICdtObjectFactory{
 
 	private $aliasFunction;
 	
-	public function CdtActionFunctionFactory( $aliasFunction=""){
+	public function __construct( $aliasFunction=""){
 		$this->setAliasFunction( $aliasFunction );
 	} 
  

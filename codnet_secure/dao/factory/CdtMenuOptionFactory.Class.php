@@ -12,7 +12,7 @@ class CdtMenuOptionFactory implements ICdtObjectFactory{
 	private $aliasMenuGroup;
 	private $aliasFunction;
 	
-	public function CdtMenuOptionFactory( $aliasMenuOption="", $aliasMenuGroup="", $aliasFunction=""){
+	public function __construct( $aliasMenuOption="", $aliasMenuGroup="", $aliasFunction=""){
 		$this->setAliasMenuGroup( $aliasMenuGroup );
 		$this->setAliasMenuOption( $aliasMenuOption );	
 		$this->setAliasFunction( $aliasFunction );

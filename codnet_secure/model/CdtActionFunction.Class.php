@@ -18,7 +18,7 @@ class CdtActionFunction {
 	
 
 	//Constructor.
-	public function CdtActionFunction() { 
+	public function __construct() {
 		//inicializar variables.
 		
 		

@@ -521,8 +521,8 @@ class LayoutSmile extends CdtLayout {
     	$styles[] =  WEB_PATH . "css/smile/jquery.alerts.css";
     	$styles[] =  WEB_PATH . "css/smile/jquery.ui.core.css";
     	/*$styles[] =  WEB_PATH . "css/smile/dock.css";
-    	$styles[] =  WEB_PATH . "css/smile/jVal.css";
-    	$styles[] =  WEB_PATH . "css/smile/cdt_secure/cdt_secure.css";*/
+    	$styles[] =  WEB_PATH . "css/smile/jVal.css";*/
+    	$styles[] =  WEB_PATH . "css/smile/cdt_secure/cdt_secure.css";
         
         if( defined("CDT_UI_THEME_WEB_PATH")) {
         	$styles[] =  CDT_UI_THEME_WEB_PATH . "styles.css";

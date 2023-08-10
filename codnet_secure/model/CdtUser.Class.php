@@ -33,7 +33,7 @@ class CdtUser {
 	private $nu_attemps;
 	
 	//Constructor.
-	public function CdtUser() { 
+	public function __construct() {
 		//inicializar variables.
 		
 		

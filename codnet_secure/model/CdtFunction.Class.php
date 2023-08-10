@@ -16,7 +16,7 @@ class CdtFunction {
 	
 
 	//Constructor.
-	public function CdtFunction() { 
+	public function __construct() {
 		//inicializar variables.
 		
 		

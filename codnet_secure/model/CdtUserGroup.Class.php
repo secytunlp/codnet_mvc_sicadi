@@ -16,7 +16,7 @@ class CdtUserGroup {
 	
 
 	//Constructor.
-	public function CdtUserGroup() { 
+	public function __construct() {
 		//inicializar variables.
 		
 		

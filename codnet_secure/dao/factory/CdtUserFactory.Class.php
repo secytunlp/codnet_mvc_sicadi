@@ -11,7 +11,7 @@ class CdtUserFactory implements ICdtObjectFactory{
 	private $aliasUser;
 	private $aliasUserGroup;
 	
-	public function CdtUserFactory( $aliasUser="", $aliasUserGroup=""){
+	public function __construct( $aliasUser="", $aliasUserGroup=""){
 		$this->setAliasUser( $aliasUser );
 		$this->setAliasUserGroup( $aliasUserGroup );	
 	} 

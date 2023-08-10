@@ -28,7 +28,7 @@ class CdtMenuOption {
 	
 
 	//Constructor.
-	public function CdtMenuOption() { 
+	public function __construct() {
 		//inicializar variables.
 		
 		

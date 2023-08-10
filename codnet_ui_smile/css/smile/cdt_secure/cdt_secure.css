@@ -63,3 +63,8 @@ ul.panel li.cdtusergroupfunctions a {
 	background-image: url(images/cdtusergroupfunctions.png);
 }
 
+
+/* {tiposTitulo} */
+ul.panel li.tiposTitulo a {
+	background: url(images/tiposTitulo.png);
+}
