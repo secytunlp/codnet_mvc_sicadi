@@ -67,6 +67,17 @@ class FieldBuilder{
 		return $field;
 	}
 
+    public static function buildFieldDisabled( $label, $id, $name="", $value="" ){
+
+        if(empty($name))
+            $name = $id;
+
+        $input = new CMPFormInput( $id, $name, "", $value );
+        $input->setRenderer( new InputDisabledRenderer() );
+        $field = new FormField($label, $input);
+        return $field;
+    }
+
 	public static function buildFieldCheckbox( $label,  $id, $name, $isChecked=false, $requiredMessage="", $value="", $size=30 ){
 		$input = new CMPFormInputCheckbox( $id, $name, $requiredMessage, $value, $size );
 		$input->setIsChecked($isChecked);

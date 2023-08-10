@@ -33,6 +33,7 @@ define( 'CDT_CMP_TEMPLATE_FORM_INPUT_NUMBER',  CDT_CMP_PATH . 'components/form/t
 define( 'CDT_CMP_TEMPLATE_FORM_INPUT_EMAIL',  CDT_CMP_PATH . 'components/form/templates/input_email.htm' );
 define( 'CDT_CMP_TEMPLATE_FORM_INPUT_SELECT',  CDT_CMP_PATH . 'components/form/templates/input_select.htm' );
 define( 'CDT_CMP_TEMPLATE_FORM_INPUT_READ_ONLY',  CDT_CMP_PATH . 'components/form/templates/input_read_only.htm' );
+define( 'CDT_CMP_TEMPLATE_FORM_INPUT_DISABLED',  CDT_CMP_PATH . 'components/form/templates/input_disabled.htm' );
 define( 'CDT_CMP_TEMPLATE_FORM_FINDENTITY',  CDT_CMP_PATH . 'components/form/templates/input_findentity.htm' );
 define( 'CDT_CMP_TEMPLATE_FORM_INPUT_TEXTAREA',  CDT_CMP_PATH . 'components/form/templates/input_textarea.htm' );
 
