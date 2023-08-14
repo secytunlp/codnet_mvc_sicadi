@@ -9,7 +9,7 @@
  */
 
 //Entity
-define('CDT_ENTITIES_LBL_ENTITY_OID', 'Identificador', true);
+define('CDT_ENTITIES_LBL_ENTITY_OID', 'Identificador');
 
 
 ?>

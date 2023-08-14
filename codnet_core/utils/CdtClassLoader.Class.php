@@ -63,7 +63,7 @@ class CdtClassLoader{
 	 * @return $filename url de la clase.
 	 */
 	public function getClassFile($ds_class_name){
-	
+
 		if( CLASS_LOADER_FROM_SESSION )
 			return $this->getClassFileSession($ds_class_name);
 		else
@@ -121,14 +121,17 @@ class CdtClassLoader{
 	 * @return $filename url de la clase.
 	 */
 	public function getClassFileSession($ds_class_name){
+
 		if ( !isset($_SESSION ["hashClasses"]) ){
 			//$_SESSION ["hashClasses"] = $this->buildHash(APP_PATH.CLASS_PATH);
 			$directorios = explode(",", CLASS_PATH);
+
 			$hash = array();
 			for ($index = 0; $index < count($directorios); $index++) {
 				$dir = $directorios[$index];
 				$hash = array_merge ($hash,  $this->buildHash($dir) );
 			}
+
 			$_SESSION ["hashClasses"] = $hash;
 			
 		}
@@ -152,7 +155,7 @@ class CdtClassLoader{
 			$ds_file_name = $_SESSION ["hashClasses"][$ds_class_name . '.Class.php'];
 			$found = !empty( $ds_file_name ) && is_file( $ds_file_name ) ;
 		}
-		
+		//echo 'no esta '.$ds_class_name."<br>";
 		if(!$found)
 			throw new ClassNotFoundException($ds_class_name);
 		return $ds_file_name;

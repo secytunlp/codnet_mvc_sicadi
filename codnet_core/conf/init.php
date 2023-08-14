@@ -7,6 +7,7 @@ include_once('messages.php');
 include_once CDT_CORE_PATH . 'utils/CdtClassLoader.Class.php';
 
 function autoload($class_name) {
+
 	if ($class_name != 'CdtClassLoader'){
 			//el class loader se encarga de incluir la clase.
 			try{
