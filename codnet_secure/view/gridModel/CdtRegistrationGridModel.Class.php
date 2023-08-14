@@ -9,7 +9,7 @@
 class CdtRegistrationGridModel extends GridModel{
 
 	
-	public function CdtRegistrationGridModel( ){
+	public function __construct( ){
 
 		parent::__construct();
 		$this->initModel();

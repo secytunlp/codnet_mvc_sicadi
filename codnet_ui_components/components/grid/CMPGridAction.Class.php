@@ -194,7 +194,7 @@ class CMPGridAction extends CdtOutputAction{
      */
     protected function addSelectedFilter(CdtSearchCriteria $oCriteria, $filterField, $filterValue, GridFilterModel $oFilterModel) {
         
-    	CdtUtils::log("addSelectedFilter filterField $filterField, filterValue $filterValue", __CLAS__, LoggerLevel::getLevelDebug());
+    	CdtUtils::log("addSelectedFilter filterField $filterField, filterValue $filterValue", __CLASS__, LoggerLevel::getLevelDebug());
 		if( $filterValue == "yes"){
 			
 			$ds_operator = $oFilterModel->getDs_operator();

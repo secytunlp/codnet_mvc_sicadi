@@ -10,7 +10,7 @@ class CdtUserGroupFactory implements ICdtObjectFactory{
 
 	private $aliasUserGroup;
 	
-	public function CdtUserGroupFactory( $aliasUserGroup=""){
+	public function __construct( $aliasUserGroup=""){
 
 		$this->setAliasUserGroup( $aliasUserGroup );	
 	} 

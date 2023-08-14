@@ -9,7 +9,7 @@
 class CdtUserGroupGridModel extends GridModel{
 
 	
-	public function CdtUserGroupGridModel( ){
+	public function __construct( ){
 
 		parent::__construct();
 		$this->initModel();

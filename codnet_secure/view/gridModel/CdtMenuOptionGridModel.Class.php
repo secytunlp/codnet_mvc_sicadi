@@ -9,7 +9,7 @@
 class CdtMenuOptionGridModel extends GridModel{
 
 	
-	public function CdtMenuOptionGridModel( ){
+	public function __construct( ){
 
 		parent::__construct();
 		$this->initModel();

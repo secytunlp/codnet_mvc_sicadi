@@ -29,6 +29,6 @@ define( 'CDT_CMP_GRID_TEXTALIGN_RIGHT', "2");
 define( 'CDT_CMP_GRID_TEXTALIGN_CENTER', "3");
 
 define( 'CDT_CMP_GRID_STYLE_CSS', WEB_PATH . "css/grid/grid.css");
-define( 'CDT_CMP_GRID_RICH_STYLE_CSS', WEB_PATH . "css/grid/rich_grid.css");
+//define( 'CDT_CMP_GRID_RICH_STYLE_CSS', WEB_PATH . "css/grid/rich_grid.css");
 define( 'CDT_CMP_GRID_RICH_POPUP_STYLE_CSS', WEB_PATH . "css/grid/rich_grid_popup.css");
 ?>

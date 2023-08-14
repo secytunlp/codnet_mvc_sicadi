@@ -18,7 +18,7 @@ class CMPGrid extends CMPComponent{
 	private $oGridRenderer;
 	private $oCriteria;
 	
-	public function CMPGrid( IGridModel $oGridModel=null, GridRenderer $oGridRenderer=null, $id=1){
+	public function __construct( IGridModel $oGridModel=null, GridRenderer $oGridRenderer=null, $id=1){
 		
 		$this->setGridModel( $oGridModel );
 		$this->setGridRenderer( $oGridRenderer );

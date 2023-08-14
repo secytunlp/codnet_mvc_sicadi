@@ -33,7 +33,7 @@ class RichGridPaginator extends GridPaginator{
 		if ($this->getNumPages () > 1) {
 			
 			if (($this->getActualPage ()) > 1) {
-				$ds_pag_anterior = "&lt;&lt; " . CDT_MVC_LBL_PAGINATOR_PREVIOUS;
+				$ds_pag_anterior = "&lt;&lt; " . CDT_UI_LBL_PAGINATOR_PREVIOUS;
 				$ant_page = ($this->getActualPage ()) - 1;
 
 				$xtpl->assign( "previousPage", $ant_page  );
@@ -59,7 +59,7 @@ class RichGridPaginator extends GridPaginator{
 			}
 			
 			if (($this->getActualPage ()) < ($this->getNumPages ())) {
-				$ds_pag_siguiente =  CDT_MVC_LBL_PAGINATOR_NEXT . " &gt;&gt;";
+				$ds_pag_siguiente =  CDT_UI_LBL_PAGINATOR_NEXT . " &gt;&gt;";
 				$sig_page = ($this->getActualPage ()) + 1;
 				
 				$xtpl->assign( "nextPage", $sig_page );

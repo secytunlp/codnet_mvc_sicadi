@@ -29,7 +29,7 @@ class LayoutSmilePanel extends LayoutSmile{
 		$xtpl = $this->getXTemplate ( $currentMenuGroup, $menuOptions);
 		
 		$xtpl->assign('titulo', $this->getTitle());
-		$xtpl->assign('header', $this->getHeader());
+		$xtpl->assign('header', $this->getHeader($menuOptions,$currentMenuGroup));
 		$xtpl->assign('user', $oUsuario->getDs_username() );
 		$xtpl->assign('content', $this->getContent());
 		$xtpl->assign('footer', $this->getFooter());

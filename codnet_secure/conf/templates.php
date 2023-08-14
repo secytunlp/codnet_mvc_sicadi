@@ -49,9 +49,9 @@ define( 'CDT_SECURE_TEMPLATE_LOGIN',  CDT_SECURE_PATH . 'view/templates/login.ht
 define( 'CDT_SECURE_TEMPLATE_WEB_LOGIN',  CDT_SECURE_PATH . 'view/templates/login_web.html' );
 
 /*solicitar nueva clave*/
-define( 'CDT_SECURE_TEMPLATE_FORGOT_PASSWORD',  CDT_SECURE_PATH . 'view/templates/forgot_password/forgot_password.html' );
+/*define( 'CDT_SECURE_TEMPLATE_FORGOT_PASSWORD',  CDT_SECURE_PATH . 'view/templates/forgot_password/forgot_password.html' );
 define( 'CDT_SECURE_TEMPLATE_FORGOT_PASSWORD_SUCCESS',  CDT_SECURE_PATH . 'view/templates/forgot_password/forgot_password_success.html' );
-define( 'CDT_SECURE_TEMPLATE_MAIL_FORGOT_PASSWORD',  CDT_SECURE_PATH . 'view/templates/forgot_password/mail_forgot_password.html' );
+define( 'CDT_SECURE_TEMPLATE_MAIL_FORGOT_PASSWORD',  CDT_SECURE_PATH . 'view/templates/forgot_password/mail_forgot_password.html' );*/
 
 
 

@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * Acción para inicializar el contexto para modificar
+ * Acciï¿½n para inicializar el contexto para modificar
  * un CdtUserGroupFunction.
  *  
  * @author codnet archetype builder
@@ -99,7 +99,7 @@ class AssignUserGroupFunctionsInitAction extends CdtEditInitAction{
 		
 		foreach($cdtFunctions as $oCdtFunction) {
 		
-			if($index==4){
+			if($index==12){
 				$index=0;
 				$xtpl->parse ( 'main.row' );
 			}
