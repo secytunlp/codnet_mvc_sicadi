@@ -50,27 +50,30 @@ vertical-align:bottom;
 <form <!-- BEGIN: property --> {name}="{value}" <!-- END: property --> >
 
 	<!-- BEGIN: fieldset -->
+<fieldset>
 		<!-- BEGIN: legend -->
-	   <th class="legend">{value}</th>
+<legend>{value}</legend>
 		<!-- END: legend -->
-		<table>
-	    
-		<tr>
+	<div class="form-flex">
 		<!-- BEGIN:column -->
 		<!-- BEGIN: field -->
-		<td class="item">
+		<div class="form-right">
 		    
 		    <!-- BEGIN: label -->
-		    <label for="{input_name}">{value} {required}:</label><br />
+		    <label for="{input_name}">{value}</label>
 		    <!-- END: label -->
 		    <!-- BEGIN: input -->
 		    {input}
 		    <!-- END: input -->
-		</td>
+			<div class="obligatorio">
+				<h3>{required}</h3>
+			</div>
+		</div>
 		<!-- END: field -->
 		<!-- END:column -->
-		</tr>
-	</table>
+	</div>
+</fieldset>
+
 	<!-- END: fieldset -->
 	<!-- BEGIN: field_hidden -->
 	{input_hidden}
@@ -99,7 +102,7 @@ vertical-align:bottom;
 		<input type="button" value="{lbl_button}" id="{form_id}_input_button_{i}" onclick="javascript: {function}; ">
 		<!-- END: button -->
 	
-		<div class="camposRequeridos">(*) {msg_required_fields}</div>	
+		<!--<div class="camposRequeridos">(*) {msg_required_fields}</div>	-->
 	</fieldset>
 </form>	
 <!-- END: buttons -->
