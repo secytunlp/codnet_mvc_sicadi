@@ -38,36 +38,36 @@ class CdtActionController{
 			//obtenemos la acciï¿½n a ejecutar (el nombre de la clase).
 			$ds_action=$map->getAction($ds_actionName);
 			
-			CdtUtils::log_debug("acciÃ³n a ejecutar $ds_action", __CLASS__);
+			CdtUtils::log_debug("acción a ejecutar $ds_action", __CLASS__);
 			
 			
-			//instanciamos la acciÃ³n por reflection.
+			//instanciamos la acción por reflection.
 			$oAction = CdtReflectionUtils::newInstance($ds_action);
 			
 			//aplicamos los filtros.
 			$this->applyFilters( $map->getFilters(), $ds_actionName, $oAction, $map );
 			CdtUtils::log_debug("Filtros aplicados", __CLASS__);
 			
-			//ejecutamos la acciÃ³n.
+			//ejecutamos la acción.
 			$ds_actionResult = $oAction->execute();
 			
-			CdtUtils::log_debug("acciÃ³n ejecutada", __CLASS__);
+			CdtUtils::log_debug("acción ejecutada", __CLASS__);
 			
 			//obtenemos la vista de acuerdo al resultado.
 			$ds_forward = $map->getForward($ds_actionResult);
 			
 			
-			//tiene sentido que una acciÃ³n setee el forward a null cuando
-			//dicha acciÃ³n renderiza la vista utilizando XTemplate.
+			//tiene sentido que una acción setee el forward a null cuando
+			//dicha acción renderiza la vista utilizando XTemplate.
 			if($ds_forward!=null)	{
 				
 				CdtUtils::log_debug("ds_forward $ds_forward", __CLASS__);
 						
-				//vemos si la acciÃ³n tiene parÃ¡metros para el forward.
+				//vemos si la acción tiene parámetros para el forward.
 				if($oAction->getDs_forward_params()!=null){
 					
 					
-					//chequeamos si el forward ya tiene parÃ¡metros (?).
+					//chequeamos si el forward ya tiene parámetros (?).
 					if(!$this->hasParameters($ds_forward))
 						$ds_forward .= '?';
 					else
@@ -84,38 +84,38 @@ class CdtActionController{
 			
 			CdtUtils::log_debug("Terminando controller", __CLASS__);
 			
-			//se cierra la conexiÃ³n a la bbdd.
+			//se cierra la conexión a la bbdd.
 			CdtDbManager::close();
 			
 		}catch(ReflectionException $e1){
-			//no existe la acciÃ³n requerida
+			//no existe la acción requerida
 			
 			$ge = new GenericException( $e1->getMessage(), $e1->getCode());
 			
 			$this->doError( $ge );
-			//se cierra la conexiÃ³n a la bbdd.
+			//se cierra la conexión a la bbdd.
 			CdtDbManager::close();
 			
 			
 		}catch(FailureException $fe){
-			//se cierra la conexiÃ³n a la bbdd.
-			CdtUtils::log_debug("Cerrando conexiÃ³n bbdd", __CLASS__);
+			//se cierra la conexión a la bbdd.
+			CdtUtils::log_debug("Cerrando conexión bbdd", __CLASS__);
 			CdtDbManager::close();
-			//exception que indica un error en la acciÃ³n ejecutada.
+			//exception que indica un error en la acción ejecutada.
 			CdtUtils::log_debug("Redireccionando x FailureException:" . $fe->getDs_actionName() . " msg: " . $fe->getMessage() , __CLASS__);
 			$this->doFailureForward( $fe );
 			
 		}catch(GenericException $e2){
-			//se cierra la conexiÃ³n a la bbdd.
-			CdtUtils::log_debug("Cerrando conexiÃ³n bbdd", __CLASS__);
+			//se cierra la conexión a la bbdd.
+			CdtUtils::log_debug("Cerrando conexión bbdd", __CLASS__);
 			CdtDbManager::close();
 			//error no esperado.
 			//print_r($e2);
 			$this->doError( $e2 );
 			
 		}catch(Exception $e3){
-			//se cierra la conexiÃ³n a la bbdd.
-			CdtUtils::log_debug("Cerrando conexiÃ³n bbdd", __CLASS__);
+			//se cierra la conexión a la bbdd.
+			CdtUtils::log_debug("Cerrando conexión bbdd", __CLASS__);
 			CdtDbManager::close();
 			//error no esperado.
 			$this->doError( $e3 );
@@ -127,7 +127,7 @@ class CdtActionController{
 	
 	
 	/**
-	 * se trata el error  por una excepciÃ³n.
+	 * se trata el error  por una excepción.
 	 * @param Exception $e
 	 * @return output string
 	 */
@@ -156,11 +156,11 @@ class CdtActionController{
 	 */
 	protected function doForward( $ds_forward ){
 		/*
-		//agarrar los parÃ¡metros que estÃ¡n en ds_forward y agregarlos al GET, agarrar la acciÃ³n,
+		//agarrar los parámetros que están en ds_forward y agregarlos al GET, agarrar la acción,
 		// y hacer un execute (similar a doFailureException).
 		
 		/*
-		//tomamos los parÃ¡metros y los dejamos en el get.
+		//tomamos los parámetros y los dejamos en el get.
 		$params = $this->getParameters( $ds_forward );
 		
 		foreach ($params as $param) {
@@ -168,10 +168,10 @@ class CdtActionController{
 			$_GET[$param["key"]] = $param["value"];
 		}
 		
-		//buscamos la acciÃ³n a ejecutar.
+		//buscamos la acción a ejecutar.
 		$ds_action = CdtUtils::getActionFromUrl( $ds_forward );
 		
-		//ejecutamos la acciÃ³n.
+		//ejecutamos la acción.
 		$this->execute( $ds_action );
 		*/
 		
@@ -197,7 +197,7 @@ class CdtActionController{
 	
 	
 	/**
-	 * para determinar si el forward viene con parÃ¡metros
+	 * para determinar si el forward viene con parámetros
 	 * @param string $ds_forward forward a evaluar.
 	 * @return boolean
 	 */
@@ -208,9 +208,9 @@ class CdtActionController{
 	}
 	
 	/**
-	 * obtiene los parÃ¡metros del forwared.
-	 * @param string $ds_forward forward de donde obtener los parÃ¡metros
-	 * @return array(string) arreglo con los parÃ¡metros.
+	 * obtiene los parámetros del forwared.
+	 * @param string $ds_forward forward de donde obtener los parámetros
+	 * @return array(string) arreglo con los parámetros.
 	 */
 	private function getParameters($ds_forward){
 		
@@ -268,12 +268,12 @@ class CdtActionController{
 	}
 
 	/**
-	 * retorna el helper de navegaciÃ³n.
+	 * retorna el helper de navegación.
 	 * @return ActionMapHelper
 	 */
 	protected function getCdtActionMapHelper(){
 		
-		//chequeamos en cachÃ©
+		//chequeamos en caché
 		
 		$cache = CdtCache::getInstance();
 		$cacheKey = "myCdtActionMapHelper";
@@ -288,29 +288,31 @@ class CdtActionController{
 	}
 	
 	/**
-	 * se aplican los filtros seteados en la navegaciÃ³n.
+	 * se aplican los filtros seteados en la navegación.
 	 * @param array $filters filtros a aplicar
-	 * @param string $ds_actionName nombre de la acciÃ³n a la cual se le aplican los filtros.
-	 * @param CdtAcion $oAction acciÃ³n a la cual se le aplican los filtros.
-	 * @param ActionMapHelper $map helper de navegaciÃ³n.
+	 * @param string $ds_actionName nombre de la acción a la cual se le aplican los filtros.
+	 * @param CdtAcion $oAction acción a la cual se le aplican los filtros.
+	 * @param ActionMapHelper $map helper de navegación.
 	 */
 	protected function applyFilters($filters, $ds_actionName, $oAction, CdtActionMapHelper $map){
 		
-		$url = $_SERVER['REQUEST_URI'];
+		if (!is_null($_SERVER) && isset($_SERVER['REQUEST_URI'])) {
+			$url = $_SERVER['REQUEST_URI'];
 		
-		//se evalÃºan cada uno de los filtros
-		foreach ($filters as $nombre => $filter) {
+			//se evalúan cada uno de los filtros
+			foreach ($filters as $nombre => $filter) {
 
-			$urlPattern = APP_NAME . $filter['urlPattern'];
+				$urlPattern = $filter['urlPattern'];
 
-			//el filtro se aplica si la url matchea con el patrÃ³n del filtro.
-			if( CdtUtils::match($url, $urlPattern) ){
-				
-				//instanciamos el filtro por reflection.
-				$oFiltro = CdtReflectionUtils::newInstance( $filter['class'] );
-				
-				//lo aplicamos.
-				$oFiltro->apply( $ds_actionName, $oAction );
+				//el filtro se aplica si la url matchea con el patrón del filtro.
+				if( CdtUtils::match($url, $urlPattern) ){
+					
+					//instanciamos el filtro por reflection.
+					$oFiltro = CdtReflectionUtils::newInstance( $filter['class'] );
+					
+					//lo aplicamos.
+					$oFiltro->apply( $ds_actionName, $oAction );
+				}
 			}
 		}
 	}

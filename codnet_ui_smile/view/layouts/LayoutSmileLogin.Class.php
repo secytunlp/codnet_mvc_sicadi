@@ -17,7 +17,7 @@ class LayoutSmileLogin extends LayoutSmile{
         $xtpl->parse('main.estilo');
     }
     
-    protected function getXTemplate($currentMenuGroup='', $menuOptions) {
+    protected function getXTemplate($menuOptions, $currentMenuGroup='') {
         return new XTemplate(CDT_UI_SMILE_TEMPLATE_LOGIN);
     }
 	

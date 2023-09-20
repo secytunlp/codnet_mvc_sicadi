@@ -70,6 +70,7 @@ abstract class CMPEntityAutocomplete extends CMPComponent{
 	}
 	
 	public function getEntityCode(){
+$entity='';
 		return CdtReflectionUtils::doGetter($entity, $this->getFieldCode());
 	}
 	

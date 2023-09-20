@@ -3,15 +3,14 @@
 //para almacenar las clases. 
 //0 => en el archivo hashClassMap.php
 //1 => en sesi�n
-define("CLASS_LOADER_FROM_SESSION", 1);
+//define("CLASS_LOADER_FROM_SESSION", 1);
 
 //para loguear las sentencias sql
 define("LOG_SQL",0);
 
 
 //para manejar los errores de la pantalla.
-define("CDT_ERROR_HANDLER", 1);
-ini_set('display_errors', 1); 
+
 
 //para loguear en los archivos de php
 //ini_set('log_errors', 1);

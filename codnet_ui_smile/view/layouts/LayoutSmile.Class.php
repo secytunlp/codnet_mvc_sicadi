@@ -76,7 +76,7 @@ class LayoutSmile extends CdtLayout {
           $this->oUsuario = $oUsuario;
          */
 
-        $xtpl = $this->getXTemplate($currentMenuGroup, $menuOptions);
+        $xtpl = $this->getXTemplate($menuOptions, $currentMenuGroup);
 
         $xtpl->assign('titulo', $this->getTitle());
         $xtpl->assign('header', $this->getHeader($menuOptions, $currentMenuGroup));
@@ -111,7 +111,7 @@ class LayoutSmile extends CdtLayout {
         return $texto;
     }
 
-    protected function getXTemplate($currentMenuGroup='', $menuOptions) {
+    protected function getXTemplate($menuOptions,$currentMenuGroup='') {
 
         //si no tiene menugroupactivo o se indic� que no hay opciones, entonces el template es sin men� lateral.
         if (empty($currentMenuGroup) || (!empty($menuOptions) && ($menuOptions == 'false') ))
@@ -195,7 +195,7 @@ class LayoutSmile extends CdtLayout {
     protected function parseMenuSolapas($xtpl, $menuGroups, $currentMenuGroup) {
 
         /* si menuGroups est� vac�o, se muestran todos los men�es */
-
+		
         if (empty($menuGroups)) {
             $this->parseMenuSolapasTodas($xtpl, $currentMenuGroup);
         } else {
@@ -221,6 +221,7 @@ class LayoutSmile extends CdtLayout {
     }
 
     protected function parseMenuGroup(XTemplate $xtpl, $menuGroup, $currentMenuGroup) {
+
 
         $oUser = CdtSecureUtils::getUserLogged();
         if ($menuGroup->hasPermission($oUser)) {

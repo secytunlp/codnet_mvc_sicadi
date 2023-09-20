@@ -34,6 +34,7 @@ class CdtSecureUtils{
 	}
 
 	public static function logout() {
+		
 		$_SESSION [APP_NAME]['cd_user'] = null;
 		unset ( $_SESSION [APP_NAME]['cd_user'] );
 		unset ( $_SESSION [APP_NAME]['cd_usergroup'] );
@@ -42,17 +43,21 @@ class CdtSecureUtils{
 		session_unset();
 		session_destroy();
 		
+		
 	}	
 	
 	public static function getUserLogged(){
 		$oUser = new CdtUser();
 		
 		$data = CdtUtils::getParamSESSION(APP_NAME);
-		$oUser->setCd_user( $data["cd_user"]);
-		$oUser->setFunctions( unserialize( $data["functions"]) );
-		$oUser->setDs_username( $data["ds_username"] );
-		$oUser->setDs_name( $data["ds_name"] );
-		$oUser->setCd_usergroup( $data["cd_usergroup"]);
+		
+		if (isset($data["cd_user"])) {
+			$oUser->setCd_user( $data["cd_user"]);
+			$oUser->setFunctions( unserialize( $data["functions"]) );
+			$oUser->setDs_username( $data["ds_username"] );
+			$oUser->setDs_name( $data["ds_name"] );
+			$oUser->setCd_usergroup( $data["cd_usergroup"]);
+		}
 		return $oUser;
 	}
 

@@ -433,7 +433,7 @@ class XTemplate {
 		// preprocess some stuff
 		$this->blocks = $this->_maketree($this->filecontents, '');
 		$this->filevar_parent = $this->_store_filevar_parents($this->blocks);
-		$this->scan_globals();
+		//$this->scan_globals();
 	}
 
 	/**
@@ -603,27 +603,31 @@ class XTemplate {
 				} else {
 
 					//$var = trim($var);
-					switch (true) {
-						case preg_match('/^\n/', $var) && preg_match('/\n$/', $var):
-							$var = substr($var, 1, -1);
-							break;
+					if ($var !== null) {
+   
+						switch (true) {
+							case preg_match('/^\n/', $var) && preg_match('/\n$/', $var):
+								$var = substr($var, 1, -1);
+								break;
 
-						case preg_match('/^\n/', $var):
-							$var = substr($var, 1);
-							break;
+							case preg_match('/^\n/', $var):
+								$var = substr($var, 1);
+								break;
 
-						case preg_match('/\n$/', $var):
-							$var = substr($var, 0, -1);
-							break;
+							case preg_match('/\n$/', $var):
+								$var = substr($var, 0, -1);
+								break;
+						}
+					
+
+						// SF Bug no. 810773 - thanks anonymous
+						$var = str_replace('\\', '\\\\', $var);
+						// Ensure dollars in strings are not evaluated reported by SadGeezer 31/3/04
+						$var = str_replace('$', '\\$', $var);
+						// Replaced str_replaces with preg_quote
+						//$var = preg_quote($var);
+						$var = str_replace('\\|', '|', $var);
 					}
-
-					// SF Bug no. 810773 - thanks anonymous
-					$var = str_replace('\\', '\\\\', $var);
-					// Ensure dollars in strings are not evaluated reported by SadGeezer 31/3/04
-					$var = str_replace('$', '\\$', $var);
-					// Replaced str_replaces with preg_quote
-					//$var = preg_quote($var);
-					$var = str_replace('\\|', '|', $var);
 					$copy = preg_replace("|" . $this->tag_start_delim . $v . $this->tag_end_delim . "|m", "$var", $copy);
 
 					if (preg_match('/^\n/', $copy) && preg_match('/\n$/', $copy)) {
@@ -910,11 +914,18 @@ class XTemplate {
      * @access public
      */
 	public function scan_globals () {
+		
+		
+		$GLOB = array();
 
-		reset($GLOBALS);
+		foreach ($GLOBALS as $key => $value) {
+			// Establecer el valor en null para reiniciar la variable
+			$GLOBALS[$key] = null;
 
-		foreach ($GLOBALS as $k => $v) {
-			$GLOB[$k] = $v;
+			// O puedes eliminar la variable completamente
+			// unset($GLOBALS[$key]);
+			
+			$GLOB[$key] = null;
 		}
 
 		/**
@@ -924,7 +935,6 @@ class XTemplate {
 		 */
 		$this->assign('PHP', $GLOB);
 	}
-
 	/**
      * gets error condition / string
      *

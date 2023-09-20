@@ -265,9 +265,9 @@ class CdtUtils {
         if( empty ($data) )
         	return false;
         
-        	
-    	$error["code"] = $data["error_code"];
-        $error["msg"] = $data["error_msg"];
+        
+    	$error["code"] = (isset($data["error_code"]))?$data["error_code"]:'';
+        $error["msg"] = (isset($data["error_msg"]))?$data["error_msg"]:'';
         
         return ( !empty($error["code"]) || !empty($error["msg"]));
         
@@ -323,6 +323,8 @@ class CdtUtils {
      * @return param value
      */
     public static function getParamSESSION($name, $default='') {
+		
+		
         if (isset($_SESSION[$name])) {
             $value = $_SESSION[$name];
         }
@@ -340,7 +342,8 @@ class CdtUtils {
      * @return param value
      */
     public static function getParam($name, $default='', $filter = true, $encode = true) {
-        if (isset($_GET [$name])) {
+        $value='';
+		if (isset($_GET [$name])) {
             if ($filter) {
                 $inputFilter = new InputFilter();
                 $value = $inputFilter->process($_GET[$name]);
@@ -368,7 +371,8 @@ class CdtUtils {
      * @return param value
      */
     public static function getParamPOST($name, $default='', $filter = true, $encode = false) {
-        if (isset($_POST [$name])) {
+        $value='';
+		if (isset($_POST [$name])) {
 
             if ($filter) {
                 $inputFilter = new InputFilter();
@@ -559,8 +563,8 @@ class CdtUtils {
         	return false;
         
         	
-    	$info["code"] = $data["info_code"];
-        $info["msg"] = $data["info_msg"];
+    	$info["code"] = (isset($data["info_code"]))?$data["info_code"]:'';
+        $info["msg"] = (isset($data["info_msg"]))?$data["info_msg"]:'';
         
         return ( !empty($info["code"]) || !empty($info["msg"]));
     }
@@ -640,14 +644,24 @@ class CdtUtils {
    	 }
    	 
 	public static function encodeValue($value){
-		if( CDT_UI_UTF8_ENCODE )
-			return utf8_encode($value);
+		if( CDT_UI_UTF8_ENCODE ){
+			if ($value !== null) {
+				//return utf8_encode($value);
+				return mb_convert_encoding($value, 'UTF-8', 'ISO-8859-1');
+			}
+		}
+			
 		else return $value;
 	}
    	 
 	public static function decodeValue($value){
-		if( CDT_UI_UTF8_ENCODE )
-			return utf8_decode($value);
+		if( CDT_UI_UTF8_ENCODE ){
+			if ($value !== null) {
+				//return utf8_decode($value);
+				return iconv("UTF-8", "ISO-8859-1", $value);
+			}
+		}
+			
 		else return $value;
 	}
 	

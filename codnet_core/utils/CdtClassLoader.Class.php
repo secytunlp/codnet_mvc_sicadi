@@ -135,7 +135,7 @@ class CdtClassLoader{
 			$_SESSION ["hashClasses"] = $hash;
 			
 		}
-
+//print_r($_SESSION ["hashClasses"]);
 		$ds_file_name = $_SESSION ["hashClasses"][$ds_class_name . '.Class.php'];
 			
 		$found = !empty( $ds_file_name ) && is_file( $ds_file_name ) ;				

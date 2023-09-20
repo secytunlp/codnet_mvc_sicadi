@@ -63,7 +63,7 @@ define( 'CDT_SECURE_TABLE_CDTMENUOPTION_DS_CSSCLASS', 'ds_cssclass');
 define( 'CDT_SECURE_TABLE_CDTMENUOPTION_DS_DESCRIPTION', 'ds_description');
 
 /* cdt_registration */
-define( 'CDT_SECURE_TABLE_CDTREGISTRATION', 'cdt_registration');
+//define( 'CDT_SECURE_TABLE_CDTREGISTRATION', 'cdt_registration');
 define( 'CDT_SECURE_TABLE_CDTREGISTRATION_CD_REGISTRATION', 'cd_registration');
 define( 'CDT_SECURE_TABLE_CDTREGISTRATION_DS_ACTIVATIONCODE', 'ds_activationcode');
 define( 'CDT_SECURE_TABLE_CDTREGISTRATION_DT_DATE', 'dt_date');

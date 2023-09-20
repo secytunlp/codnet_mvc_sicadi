@@ -9,7 +9,7 @@
 class LayoutSmileSignup extends LayoutSmile{
 
 
-    protected function getXTemplate($currentMenuGroup='', $menuOptions) {
+    protected function getXTemplate($menuOptions,$currentMenuGroup='') {
         return new XTemplate(CDT_UI_SMILE_TEMPLATE_SIGNUP);
     }
 	

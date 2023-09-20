@@ -21,7 +21,7 @@ abstract class CdtEditAsyncAction extends CdtAction{
 		//se inicia una transacción.
 		CdtDbManager::begin_tran();
 		
-		$result = "";
+		$result = array();
 		
 		try{
 			$oEntity = $this->getEntity();

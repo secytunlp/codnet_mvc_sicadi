@@ -96,7 +96,7 @@ class AssignUserGroupFunctionsInitAction extends CdtEditInitAction{
 		$cdtFunctions = $manager->getCdtFunctions( new CdtSearchCriteria() );
 		
 		$index=0;
-		
+		$iterador=1;
 		foreach($cdtFunctions as $oCdtFunction) {
 		
 			if($index==12){
@@ -109,6 +109,8 @@ class AssignUserGroupFunctionsInitAction extends CdtEditInitAction{
 			$xtpl->assign ( 'cd_function', $oCdtFunction->getCd_function() );
 			
 			$xtpl->assign ( 'cd_function',  $oCdtFunction->getCd_function() ) ;
+
+            $xtpl->assign ( 'input_name',  'check_'.$iterador ) ;
 			
 			if( $this->exists( $functions, $oCdtFunction ) )
 				$xtpl->assign ( 'checked', "checked" );
@@ -116,6 +118,7 @@ class AssignUserGroupFunctionsInitAction extends CdtEditInitAction{
 				$xtpl->assign ( 'checked', "" );
 				
 			$index++;
+            $iterador++;
 			
 			$xtpl->parse ( 'main.row.functions_option' );
 		}

@@ -12,10 +12,17 @@ class MySQL implements ICdtDatabase{
 	var $rowset;
 	var $num_queries = 0;
 
-	function __construct(){
-		$this->row = array();
-		$this->rowset = array();
-	}
+	 // Declarar las propiedades como variables de clase
+    private $user;
+    private $password;
+    private $server;
+    private $dbname;
+    // Resto de la clase...
+
+    function __construct() {
+        $this->row = array();
+        $this->rowset = array();
+    }
 
 	/**
 	 * (non-PHPdoc)

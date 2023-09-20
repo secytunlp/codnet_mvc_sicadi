@@ -136,10 +136,19 @@ class EntityGridRenderer implements IEntityGridRenderer {
 
     protected function getXTemplate() {
 
+		$xtemplate = '';
         if (CdtUtils::getParam("search"))
-            return $this->getResultsXTemplate();
-        else
-            return new XTemplate(CDT_CMP_TEMPLATE_ENTITYGRID);
+            $xtemplate = $this->getResultsXTemplate();
+        else{
+			try {
+				CYTSecureUtils::logObject($_SESSION["sicadi"]);
+				$xtemplate = new XTemplate(CDT_CMP_TEMPLATE_ENTITYGRID);
+				
+			} catch (Exception $e) {
+				echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+			}
+		}
+     return $xtemplate;
     }
 
 	public function renderActions( XTemplate $xtpl) {

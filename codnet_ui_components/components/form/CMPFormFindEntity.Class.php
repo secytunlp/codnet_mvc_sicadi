@@ -108,7 +108,7 @@ class CMPFormFindEntity extends CMPFormInput{
 	private $minWidth="";
 	
 	public function __construct($id, $name, $requiredMessage="", $value=null, $codeSize=5, $labelSize=25){
-
+		$size='';
 		parent::__construct($id, $name, $requiredMessage, $value, $size);
 		
 		$this->setRenderer(new InputFindEntityRenderer() );

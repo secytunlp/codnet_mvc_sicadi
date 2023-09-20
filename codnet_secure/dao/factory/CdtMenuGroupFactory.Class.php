@@ -19,13 +19,24 @@ class CdtMenuGroupFactory implements ICdtObjectFactory{
 		$aliasMenuGroup = ($this->getAliasMenuGroup())? $this->getAliasMenuGroup(). "_" : "";
 		
 		$oCdtMenuGroup  = new CdtMenuGroup();
-
-		$oCdtMenuGroup->setCd_menugroup( $next[$aliasMenuGroup . "cd_menugroup"] );
-		$oCdtMenuGroup->setDs_action( $next[$aliasMenuGroup . "ds_action"] );
-		$oCdtMenuGroup->setDs_cssclass( $next[$aliasMenuGroup . "ds_cssclass"] );
-		$oCdtMenuGroup->setDs_name( $next[$aliasMenuGroup . "ds_name"] );
-		$oCdtMenuGroup->setNu_order( $next[$aliasMenuGroup . "nu_order"] );
-		$oCdtMenuGroup->setNu_width( $next[$aliasMenuGroup . "nu_width"] );
+		if (isset($next[$aliasMenuGroup . "cd_menugroup"])) {
+			$oCdtMenuGroup->setCd_menugroup( $next[$aliasMenuGroup . "cd_menugroup"] );
+		}
+		if (isset($next[$aliasMenuGroup . "ds_action"])) {
+			$oCdtMenuGroup->setDs_action( $next[$aliasMenuGroup . "ds_action"] );
+		}
+		if (isset($next[$aliasMenuGroup . "ds_cssclass"])) {
+			$oCdtMenuGroup->setDs_cssclass( $next[$aliasMenuGroup . "ds_cssclass"] );
+		}
+		if (isset($next[$aliasMenuGroup . "ds_name"])) {
+			$oCdtMenuGroup->setDs_name( $next[$aliasMenuGroup . "ds_name"] );
+		}
+		if (isset($next[$aliasMenuGroup . "nu_order"])) {
+			$oCdtMenuGroup->setNu_order( $next[$aliasMenuGroup . "nu_order"] );
+		}
+		if (isset($next[$aliasMenuGroup . "nu_width"])) {
+			$oCdtMenuGroup->setNu_width( $next[$aliasMenuGroup . "nu_width"] );
+		}
 		
 		return $oCdtMenuGroup;
 	}

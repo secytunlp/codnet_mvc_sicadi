@@ -10,6 +10,8 @@ class CdtPaginator {
 	protected $num_pages_per_page; //Esta variable me indica la cantidad de paginas que imprimo por pagina
 	protected $num_rows_per_page; //Esta variable me indica la cantidad de registros que imprimo por pagina
 	protected $total_rows;
+	protected $init_page;
+	protected $end_page;
 	
 	
 	//

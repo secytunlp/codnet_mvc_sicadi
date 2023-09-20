@@ -32,11 +32,11 @@ define( "CDT_SECURE_MSG_RECUPERAR_PASSWORD", "Olvidé mi contraseña");
 //solicitar clave.
 //define( "CDT_SECURE_MSG_SOLICITAR_CLAVE", "If you have forgotten your password and would like to change it, enter your email address and we'll send you a new password reset request.");
 define( "CDT_SECURE_MSG_FORGOT_PASSWORD_TITLE", "Solicitar password");
-define( "CDT_SECURE_MSG_FORGOT_PASSWORD", "Si olvidó su password y quiere cambiarla, ingrese su nombre de usuario o e-mail y le enviaremos una nueva");
-define( "CDT_SECURE_LBL_FORGOT_PASSWORD_EMAIL", "Nombre de usuario o e-mail");
-define( "CDT_SECURE_MSG_FORGOT_PASSWORD_FILL_EMAIL", "Nombre de usuario o e-mail requerido");
+//define( "CDT_SECURE_MSG_FORGOT_PASSWORD", "Si olvidó su password y quiere cambiarla, ingrese su nombre de usuario o e-mail y le enviaremos una nueva");
+//define( "CDT_SECURE_LBL_FORGOT_PASSWORD_EMAIL", "Nombre de usuario o e-mail");
+//define( "CDT_SECURE_MSG_FORGOT_PASSWORD_FILL_EMAIL", "Nombre de usuario o e-mail requerido");
 define( "CDT_SECURE_BTN_FORGOT_PASSWORD_RESETEAR", "Resetear");
-define( "CDT_SECURE_MSG_FORGOT_PASSWORD_NEW_PASSWORD_SENT", "Te enviamos una nueva password a tu e-mail");
+//define( "CDT_SECURE_MSG_FORGOT_PASSWORD_NEW_PASSWORD_SENT", "Te enviamos una nueva password a tu e-mail");
 define('CDT_SECURE_MSG_CDTUSER_NO_IP', 'No hay ninguna IP definida' );
 define('CDT_SECURE_MSG_CDTUSER_IP_INVALID', 'Formato de IP no válido' );
 define('CDT_SECURE_MSG_CDTUSER_IP_TITLE', 'Limitar usuario por IP' );
@@ -56,7 +56,7 @@ define( "CDT_SECURE_MSG_SECURITYCODE", 'Código de seguridad');
 define( "CDT_SECURE_MSG_REPEAT_PASSWORD", 'Repetir password');
 define( "CDT_SECURE_MSG_READ_TERMS", 'Aceptar t&eacute;rminos & condiciones');
 
-define( "CDT_SECURE_MSG_USERNAME_REQUIRED", 'Nombre de usuario requerido');
+//define( "CDT_SECURE_MSG_USERNAME_REQUIRED", 'Nombre de usuario requerido');
 define( "CDT_SECURE_MSG_PASSWORD_REQUIRED", 'Password requerida');
 define( "CDT_SECURE_MSG_SECURITYCODE_REQUIRED", 'Código de seguridad requerido');
 
@@ -65,12 +65,12 @@ define( "CDT_SECURE_MSG_PASSWORDS_INVALID", 'Las passwords no coinciden');
 define( "CDT_SECURE_MSG_RELOAD_IMAGE", 'Cambiar imagen');
 define( "CDT_SECURE_LBL_BTN_REGISTER", 'Registrarse');
 define( 'CDT_SECURE_MSG_REGISTRATION_SIGNUP_TITLE', 'Registrarse');
-define( "CDT_SECURE_MSG_REGISTRATION_SIGNUP_SUCCESS", 'Gracias por registrarte! Recibir&aacute;s un e-mail con instrucciones para activar tu cuenta.');
-define( "CDT_SECURE_MSG_ACTIVATE_REGISTRATION_SUCCESS", "Tu cuenta ha sido activada!.");
+//define( "CDT_SECURE_MSG_REGISTRATION_SIGNUP_SUCCESS", 'Gracias por registrarte! Recibir&aacute;s un e-mail con instrucciones para activar tu cuenta.');
+//define( "CDT_SECURE_MSG_ACTIVATE_REGISTRATION_SUCCESS", "Tu cuenta ha sido activada!.");
 define( "CDT_SECURE_MSG_ACTIVATION_CODE_INVALID",  "El código de activación no es v&aacute;lido" );
 define( "CDT_SECURE_MSG_ACTIVATION_CODE_EXPIRED",  "El código de activación caducó" );
 define( "CDT_SECURE_MSG_REGISTRATION_EMAIL_SUBJECT",  'Registración' );
-define( "CDT_SECURE_MSG_REGISTRATION_USERNAME_DUPLICATED",  'El nombre de usuario no est&aacute; disponible' );
+//define( "CDT_SECURE_MSG_REGISTRATION_USERNAME_DUPLICATED",  'El nombre de usuario no est&aacute; disponible' );
 define( "CDT_SECURE_MSG_REGISTRATION_EMAIL_DUPLICATED",  'El e-mail no est&aacute; disponible' );
 
 define( "CDT_SECURE_MSG_REGISTRATION_TERMS_TITLE", 'T&eacute;rminos & Condiciones');
@@ -172,14 +172,14 @@ define('CDT_SECURE_MSG_CDTUSER_DS_PHONE_REQUIRED', 'Teléfono requerido');
 define('CDT_SECURE_MSG_CDTUSER_DS_ADDRESS_REQUIRED', 'Domicilio requerido');
 
 define('CDT_SECURE_MSG_CDTUSER_NEW_USER_PASSWORD', 'Debe anotar y enviar la clave generada al nuevo usuario: <b>$1 / $2</b>');
-define('CDT_SECURE_MSG_CDTUSER_NO_IP', 'No hay ninguna IP definida' );
-define('CDT_SECURE_MSG_CDTUSER_IP_INVALID', 'Formato de IP incorrecto' );
-define('CDT_SECURE_MSG_CDTUSER_IP_TITLE', 'Limitar el acceso por IP' );
-define('CDT_SECURE_MSG_CDTUSER_IP_ADD', 'Agregar IP' );
-define('CDT_SECURE_MSG_CDTUSER_IP_DELETE', 'Quitar IP' );
-define('CDT_SECURE_MSG_CDTUSER_IP_NOT_EXISTS', 'La IP $1 no exist' );
-define('CDT_SECURE_MSG_CDTUSER_IP_ALREADY_EXISTS', 'La IP $1 ya existe' );
-define('CDT_SECURE_MSG_CDTUSER_IP_DELETE_CONFIRM', 'Confirma eliminar la IP seleccionada?' );
+//define('CDT_SECURE_MSG_CDTUSER_NO_IP', 'No hay ninguna IP definida' );
+//define('CDT_SECURE_MSG_CDTUSER_IP_INVALID', 'Formato de IP incorrecto' );
+//define('CDT_SECURE_MSG_CDTUSER_IP_TITLE', 'Limitar el acceso por IP' );
+//define('CDT_SECURE_MSG_CDTUSER_IP_ADD', 'Agregar IP' );
+//define('CDT_SECURE_MSG_CDTUSER_IP_DELETE', 'Quitar IP' );
+//define('CDT_SECURE_MSG_CDTUSER_IP_NOT_EXISTS', 'La IP $1 no exist' );
+//define('CDT_SECURE_MSG_CDTUSER_IP_ALREADY_EXISTS', 'La IP $1 ya existe' );
+//define('CDT_SECURE_MSG_CDTUSER_IP_DELETE_CONFIRM', 'Confirma eliminar la IP seleccionada?' );
 
 //títulos de las actions
 define('CDT_SECURE_MSG_CDTUSERGROUP_TITLE_LIST', 'Listar Perfiles');

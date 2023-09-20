@@ -174,7 +174,7 @@ class CMPForm extends CMPComponent{
 	 */
 	public function fillInputValues( $entity ){
 		
-		
+		$type='';
 		foreach ($this->getFieldsets() as $fieldset) {
 			foreach ($fieldset->getFields() as $field) {
 				$input = $field->getInput();
@@ -507,7 +507,7 @@ class CMPForm extends CMPComponent{
 	 */
 	public function fillEntitySavedFields( $entity ){
 		
-		
+		$type='';
 		foreach ($this->getFieldsets() as $fieldset) {
 			foreach ($fieldset->getFields() as $field) {
 				$input = $field->getInput();

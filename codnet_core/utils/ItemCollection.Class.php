@@ -34,23 +34,24 @@ class ItemCollection implements Iterator {
 		unset($this->_items[$key]);
 	}
 
-	public function rewind() {
+	public function rewind():void {
 		reset($this->_items);
 	}
 
-	public function current() {
+	public function current(): mixed {
+
 		return current($this->_items);
 	}
 
-	public function key() {
+	public function key():mixed {
 		return key($this->_items);
 	}
 
-	public function next() {
-		return next($this->_items);
+	public function next():void {
+		 next($this->_items);
 	}
 
-	public function valid() {
+	public function valid():bool {
 		return $this->current() !== false;
 	}
 

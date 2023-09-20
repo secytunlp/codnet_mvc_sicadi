@@ -196,7 +196,7 @@ abstract class GenericDAO {
      * @return Entity
      */
     public function getEntity(CdtSearchCriteria $oCriteria, $idConn=0) {
-
+		$obj='';
         $db = CdtDbManager::getConnection( $idConn );
 
         $idName = $this->getIdFieldName();
@@ -224,7 +224,7 @@ abstract class GenericDAO {
     }
 
 	public function formatString( $value ){
-		$res = addslashes($value);
+		$res = ($value !== null)?addslashes($value):'';
 		return "'$res'";
 	}
 	

@@ -20,7 +20,7 @@ define( 'CDT_UI_SMILE_TEMPLATE_MENU',  CDT_UI_SMILE_PATH . 'view/templates/smile
 define( 'CDT_UI_SMILE_TEMPLATE_HEADER',  CDT_UI_SMILE_PATH . 'view/templates/header.html' );
 define( 'CDT_UI_SMILE_TEMPLATE_FOOTER',  CDT_UI_SMILE_PATH . 'view/templates/footer.html' );
 
-define( 'CDT_SECURE_TEMPLATE_LOGIN',  CDT_UI_SMILE_PATH . 'view/templates/smile_login.html' );
+//define( 'CDT_SECURE_TEMPLATE_LOGIN',  CDT_UI_SMILE_PATH . 'view/templates/smile_login.html' );
 
 
 /*solicitar nueva clave*/

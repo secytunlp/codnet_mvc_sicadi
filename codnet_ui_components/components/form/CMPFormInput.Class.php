@@ -222,7 +222,7 @@ class CMPFormInput extends CMPComponent{
 		
 		$inputValue = ( $formMethodType == "POST")?CdtUtils::getParamPOST($inputNameForm,'',$this->getIsFilter()):CdtUtils::getParam($inputNameForm,'',$this->getIsFilter());
 				
-		CdtUtils::log("setting...type $type...  $inputName = $inputValue ", __CLASS__, LoggerLevel::getLevelDebug());
+		CdtUtils::log("setting...type   $inputName = $inputValue ", __CLASS__, LoggerLevel::getLevelDebug());
 				
 				
 		CdtReflectionUtils::doSetter( $entity, $inputName, $inputValue );

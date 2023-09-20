@@ -15,6 +15,7 @@ abstract class GridModel implements IGridModel{
 	private $filtersModel;
 	private $actionsModel;
 	private $rowActionsModel;
+	private $filterExpressionTemplate;
 
 	public function __construct(){
 		$this->entities = new ItemCollection();
@@ -200,7 +201,7 @@ abstract class GridModel implements IGridModel{
 		$oAction->setDs_action( $action );
 		$oAction->setDs_name( $name );
 		$oAction->setDs_label( $label );
-		$oAction->setBl_multiple( $multiple );
+		$oAction->setBl_multiple( $bl_multiple );
 		$oAction->setDs_image( $ds_image );
 		$oAction->setDs_style( $ds_style );
 		$oAction->setDs_callback( $ds_callback );
@@ -340,12 +341,16 @@ abstract class GridModel implements IGridModel{
 	}
 
 	protected function buildUpdateAction( $item, $ds_entityName, $ds_entityLabel){
+		$nu_heightPopup=''; 
+		$nu_widthPopup=''; 
 		$action = $this->buildRowAction( "update_" . $ds_entityName . "_init", "update_$ds_entityName" . "_init", CDT_CMP_GRID_MSG_EDIT . " $ds_entityLabel", CDT_UI_IMG_EDIT, "edit", "", false, "", false, $nu_heightPopup, $nu_widthPopup ) ;
 		return $action;
 	}
 
 
 	protected function buildDeleteAction( $item, $ds_entityName, $ds_entityLabel, $msg, $bl_multiple_delete){
+		$nu_heightPopup=0;
+		$nu_widthPopup=0;
 		$action =  $this->buildRowAction( "delete_$ds_entityName", "delete_$ds_entityName", CDT_CMP_GRID_MSG_DELETE . " $ds_entityLabel", CDT_UI_IMG_DELETE, "delete", "delete_items('delete_$ds_entityName')", $bl_multiple_delete, $msg, false, $nu_heightPopup, $nu_widthPopup) ;
 		return $action;
 	}

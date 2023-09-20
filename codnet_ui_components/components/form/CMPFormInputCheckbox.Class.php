@@ -54,7 +54,7 @@ class CMPFormInputCheckbox extends CMPFormInput{
 		
 		$inputValue = ( $formMethodType == "POST")? isset($_POST[$inputNameForm]) : isset($_GET[$inputNameForm]);
 				
-		CdtUtils::log("setting...type $type...  $inputName = $inputValue ", __CLASS__, LoggerLevel::getLevelDebug());
+		CdtUtils::log("setting...type  $inputName = $inputValue ", __CLASS__, LoggerLevel::getLevelDebug());
 				
 		CdtReflectionUtils::doSetter( $entity, $inputName, $inputValue );
 				

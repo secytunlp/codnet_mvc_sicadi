@@ -158,7 +158,7 @@ class CdtDbManager {
 	 */
 	public function databaseUnset($index){
 
-		
+		$existe=0;
 		//CdtUtils::log("databaseUnset: $index" , __CLASS__, LoggerLevel::getLevelInfo());
 		
 		/*

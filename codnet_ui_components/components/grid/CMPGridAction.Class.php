@@ -151,11 +151,12 @@ class CMPGridAction extends CdtOutputAction{
             if (empty($field))
                 $field = $oFilterModel->getDs_field();
 
-        	$value = utf8_decode($oFilterModel->getDs_value());
-			
+        	//$value = utf8_decode($oFilterModel->getDs_value());
+			$value = mb_convert_encoding($oFilterModel->getDs_value(), 'ISO-8859-1', 'UTF-8');
             if(empty($value)){
                	//el get convierte "." por "_" as� que lo convertimos.
-            	$value = utf8_decode(CdtUtils::getParam(str_replace(".", "_", $name) . "_" . $gridId, "","",false));
+            	//$value = utf8_decode(CdtUtils::getParam(str_replace(".", "_", $name) . "_" . $gridId, "","",false));
+				$value = mb_convert_encoding(CdtUtils::getParam(str_replace(".", "_", $name) . "_" . $gridId, "","",false), 'ISO-8859-1', 'UTF-8');
         	}			
             $this->addSelectedFilter($oCriteria, $field, $value, $oFilterModel);
             
@@ -164,7 +165,8 @@ class CMPGridAction extends CdtOutputAction{
             if( ($name == $filterField) ){
             	//$inputFilter = new InputFilter();
             	//$filterValue =  $inputFilter->decode( $filterValue );
-            	$filterValue =  utf8_decode( $filterValue );
+            	//$filterValue =  utf8_decode( $filterValue );
+				$filterValue = mb_convert_encoding($filterValue, 'ISO-8859-1', 'UTF-8');
             	CdtUtils::log("seteando filter default $field = $filterValue", __CLASS__, LoggerLevel::getLevelDebug());
 	        	$this->addSelectedFilter($oCriteria, $field, $filterValue, $oFilterModel);            	
             }

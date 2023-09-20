@@ -155,6 +155,7 @@ class CdtActionFunctionDAO implements ICdtActionFunctionDAO{
 	 */
 	public function getCdtActionFunction(CdtSearchCriteria $oCriteria) { 
 
+		$obj = '';
 		$db = CdtDbManager::getConnection(); 
 
 		$tableName = CDT_SECURE_TABLE_CDTACTIONFUNCTION;

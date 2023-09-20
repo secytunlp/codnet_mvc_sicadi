@@ -10,8 +10,15 @@ class CdtExceptionHandler {
 	
 	public function doHandle(  Exception $ex ){
 		
-		//asociamos el error al request.
-		CdtUtils::setRequestError( $ex );
+			// Convertir la excepción en una GenericException si es necesario
+		if (!($ex instanceof GenericException)) {
+			$genericEx = new GenericException($ex->getMessage(), $ex->getCode(), $ex);
+		} else {
+			$genericEx = $ex;
+		}
+		
+		// Asociar el error al request.
+		CdtUtils::setRequestError($genericEx);
 		
 		CdtUtils::log_error( get_class($this) . " > error() => Error no esperado: code => " . $ex->getCode() . " msg => " . $ex->getMessage(), __CLASS__);
 
